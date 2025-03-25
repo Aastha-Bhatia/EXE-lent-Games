@@ -19,17 +19,5 @@
    - Drag & drop `index.html` or connect GitHub
 3. Customize game files in `/images` and `/videos`
 
-## File Structure
-/
-├── index.html
-├── images/
-│   ├── wacamole/
-│   ├── snakegame/
-│   └── tictactoe/
-├── videos/
-│   ├── 2dshooter.mp4
-│   └── solarsystem.mp4
-└── README.md
-
 ## Creator
 Aastha Bhatia
