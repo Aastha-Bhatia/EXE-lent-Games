@@ -19,23 +19,17 @@
 ---
 
 ## 📥 Download & Play  
-
-### 🔗 [Download Games Here](https://drive.google.com/)  
-
 1. Click on the **Download Now** button for your favorite game.  
 2. Ensure you have **Java installed** on your PC.  
 3. Run the `.jar` file and start playing!  
 
 ### 🎮 Play Online  
-
 1. Open your favorite web browser (Chrome, Firefox, Edge, Safari).  
 2. Click on the **Play Now** button for any online game.  
 3. Enjoy instant gaming—no installation required!  
-
 ---
 
 ## 🖥️ System Requirements  
-
 ### ✅ For Downloadable Games  
 - **Operating System:** Windows, macOS, Linux  
 - **Java:** JDK 11+ (Check using `java -version`)  
@@ -47,7 +41,6 @@
 - **Stable Internet Connection**  
 
 ---
-
 ## 📸 Screenshots  
 
 ### **Whac-A-Mole**  
@@ -75,13 +68,10 @@
      ```sh
      java -jar GameName.jar
      ```  
-
 ---
 
 ## 🤝 Contribution  
-
 Want to improve or add new games? Feel free to fork this repository, make changes, and submit a pull request!  
-
 1. **Fork the repository**  
 2. **Clone the repo**  
    ```sh
@@ -96,19 +86,13 @@ Want to improve or add new games? Feel free to fork this repository, make change
    ```sh
    git push origin main
    ```  
-
 ---
-
 ## 📜 License  
 
 This project is open-source and available under the **MIT License**.  
-
 ---
-
 ## 💖 Created By  
-
 👩‍💻 **Aastha Bhatia**  
-
 🚀 Happy Gaming! 🎮  
 
 ---
