@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXE-lent Games🎮</title>
+    <style>
+        /* CSS Styles */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #222;
+            color: #f1f1f1;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        h1 {
+            margin: 15px 0;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            font-weight: 600;
+        }
+
+        h3 {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            margin: 0 0 15px;
+        }
+
+        .tab-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 15px 0;
+            gap: 10px;
+        }
+
+        .tab-btn {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #f8b400;
+            border: none;
+            border-radius: 5px;
+            font-size: clamp(0.9rem, 3vw, 1rem);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            flex: 1 0 auto;
+            max-width: 200px;
+        }
+
+        .tab-btn.active {
+            background-color: #f8b400;
+            color: #222;
+        }
+
+        .tab-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .gallery {
+            width: 95%;
+            max-width: 600px;
+            margin: 15px auto;
+            overflow: hidden;
+            border-radius: 10px;
+            position: relative;
+            min-height: 200px;
+            aspect-ratio: 16/9;
+        }
+
+        .gallery img, 
+        .gallery video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+            border-radius: 10px;
+        }
+
+        .gallery img.active, 
+        .gallery video.active {
+            display: block;
+        }
+
+        .game-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px auto;
+            padding: 0 10px;
+        }
+
+        .game-box {
+            width: 100%;
+            max-width: 300px;
+            padding: 15px;
+            background: #333;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            text-align: center;
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+
+        .game-box:hover {
+            transform: scale(1.03);
+        }
+
+        .game-box h2 {
+            color: #f8b400;
+            font-size: clamp(1.2rem, 4vw, 1.3rem);
+            font-weight: 600;
+            margin: 10px 0;
+        }
+
+        .game-box p {
+            font-size: clamp(0.85rem, 3vw, 0.9rem);
+            color: #ddd;
+            line-height: 1.5;
+            margin: 10px 0;
+        }
+
+        .action-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 16px;
+            color: white;
+            background-color: #f8b400;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background 0.2s;
+            font-size: clamp(0.85rem, 3vw, 0.9rem);
+        }
+
+        .action-btn:hover {
+            background-color: #ffcc00;
+        }
+
+        .how-to-play {
+            margin: 30px auto;
+            padding: 15px;
+            background: #333;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            width: 95%;
+            max-width: 600px;
+            text-align: left;
+        }
+
+        .how-to-play h2 {
+            color: #f8b400;
+            text-align: center;
+            font-size: clamp(1.2rem, 4vw, 1.3rem);
+            margin: 10px 0;
+        }
+
+        .how-to-play p, 
+        .how-to-play li {
+            font-size: clamp(0.85rem, 3vw, 0.9rem);
+            color: #ddd;
+            line-height: 1.5;
+        }
+
+        .java-check-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 16px;
+            color: white;
+            background-color: #008CBA;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-size: clamp(0.85rem, 3vw, 0.9rem);
+            border: none;
+        }
+
+        .java-check-btn:hover {
+            background-color: #0074A2;
+        }
+
+        .creator {
+            margin: 20px 0;
+            color: #f8b400;
+            font-size: clamp(0.9rem, 3vw, 1rem);
+        }
+
+        .creator span {
+            color: #ff6b6b;
+        }
+
+        @media (max-width: 480px) {
+            .tab-btn {
+                padding: 8px 12px;
+                max-width: 150px;
+            }
+            
+            .game-box {
+                padding: 12px;
+            }
+            
+            .action-btn, 
+            .java-check-btn {
+                padding: 6px 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>🎮 EXE-lent Games: Download & Play 🎮</h1>
+    <h3>PC Gaming, Zero Compromises</h3>
+
+    <div class="tab-container">
+        <button class="tab-btn active" onclick="openTab('download-games')">Download Games</button>
+        <button class="tab-btn" onclick="openTab('play-online')">Play Online</button>
+    </div>
+
+    <div class="gallery">
+        <img src="images/wacamole/GameScreenshot1.png" class="download-img wacamole active">
+        <img src="images/wacamole/GameScreenshot2.png" class="download-img wacamole">
+        <img src="images/wacamole/GameScreenshot3.png" class="download-img wacamole">
+        <img src="images/wacamole/GameScreenshot4.png" class="download-img wacamole">
+        <img src="images/snakegame/GameScreenshot1.png" class="download-img snakegame">
+        <img src="images/snakegame/GameScreenshot2.png" class="download-img snakegame">
+        <img src="images/tictactoe/GameScreenshot1.png" class="download-img tictactoe">
+        <img src="images/tictactoe/GameScreenshot2.png" class="download-img tictactoe">
+        <img src="images/tictactoe/GameScreenshot3.png" class="download-img tictactoe">
+        <img src="images/tictactoe/GameScreenshot4.png" class="download-img tictactoe">
+        
+        <video src="videos/2dshooter.mp4" class="online-video shooter" loop></video>
+        <video src="videos/solarsystem.mp4" class="online-video solar" loop></video>
+    </div>
+
+    <div id="download-games" class="tab-content active">
+        <div class="game-container">
+            <div class="game-box" onmouseover="showGameImages('wacamole')" onmouseout="startAutoSlideshow()">
+                <h2>Whac-A-Mole 🛠️</h2>
+                <p>Test your reflexes in this fast-paced arcade game!</p>
+                <a href="https://drive.google.com/uc?export=download&id=1dCsFJLLBXBqJDOfLivcgOAFKlhYuhXD-" class="action-btn">Download Now</a>
+            </div>
+            <div class="game-box" onmouseover="showGameImages('tictactoe')" onmouseout="startAutoSlideshow()">
+                <h2>Tic Tac Toe ❌⭕</h2>
+                <p>Challenge yourself in this timeless battle of wits!</p>
+                <a href="https://drive.google.com/uc?export=download&id=18kev1oOIAqxWTz76X2c16lGlNCzKjuXS" class="action-btn">Download Now</a>
+            </div>
+            <div class="game-box" onmouseover="showGameImages('snakegame')" onmouseout="startAutoSlideshow()">
+                <h2>Snake Game 🐍</h2>
+                <p>Guide your snake to eat food and grow longer!</p>
+                <a href="https://drive.google.com/uc?export=download&id=1udHQZ9QnkciNAywnEDR8Fz4um-CKCMmI" class="action-btn">Download Now</a>
+            </div>
+        </div>
+        
+        <div class="how-to-play">
+            <h2>⚡ How to Play These Games? ⚡</h2>
+            <p>These games require <strong>Java</strong> to run:</p>
+            <ol>
+                <li>Check if Java is installed: <br><code>java -version</code></li>
+                <li>If missing, download from <a href="https://www.oracle.com/java/technologies/javase-jdk11-downloads.html" target="_blank">here</a></li>
+                <li>Double-click the downloaded <strong>.jar</strong> file</li>
+            </ol>
+            <div style="text-align: center;">
+                <button class="java-check-btn" onclick="checkJava()">Check Java Installation</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="play-online" class="tab-content">
+        <div class="game-container">
+            <div class="game-box" onmouseover="showGameVideo('shooter')" onmouseout="hideGameVideo('shooter')">
+                <h2>2D Space Shooter 🚀</h2>
+                <p>Blast through enemy waves in this action-packed space shooter!</p>
+                <a href="https://aasthabhatia.itch.io/2dshooter" target="_blank" class="action-btn">Play Now</a>
+            </div>
+            <div class="game-box" onmouseover="showGameVideo('solar')" onmouseout="hideGameVideo('solar')">
+                <h2>Solar System Explorer 🌌</h2>
+                <p>Embark on an educational journey through our solar system!</p>
+                <a href="https://aasthabhatia.itch.io/solar-system" target="_blank" class="action-btn">Play Now</a>
+            </div>
+        </div>
+        
+        <div class="how-to-play">
+            <h2>⚡ How to Play Online Games? ⚡</h2>
+            <p>These games run directly in your browser:</p>
+            <ol>
+                <li>Modern browser (Chrome, Firefox, Edge, or Safari)</li>
+                <li>JavaScript enabled</li>
+                <li>Stable internet connection</li>
+            </ol>
+            <p>Click "Play Now" to start!</p>
+        </div>
+    </div>
+
+    <div class="creator">
+        Created by Aastha Bhatia <span>❤️</span>
+    </div>
+
+    <script>
+        // JavaScript
+        let currentActiveMedia = null;
+        let currentGameImages = [];
+        let currentGameIndex = 0;
+        let gameSlideshowInterval = null;
+        let autoSlideshowInterval = null;
+
+        // Initialize the page with download games tab active
+        document.addEventListener('DOMContentLoaded', function() {
+            showFirstDownloadImage();
+            startAutoSlideshow();
+            
+            // Preload videos
+            document.querySelectorAll('.online-video').forEach(video => {
+                video.load();
+            });
+        });
+
+        function openTab(tabName) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Remove active class from all buttons
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show the selected tab content and mark button as active
+            document.getElementById(tabName).classList.add('active');
+            event.currentTarget.classList.add('active');
+            
+            // Clear any running slideshow
+            clearInterval(gameSlideshowInterval);
+            clearInterval(autoSlideshowInterval);
+            
+            // Show appropriate media based on tab
+            if (tabName === 'play-online') {
+                hideAllMedia();
+                // Show first video by default
+                document.querySelector('.online-video.shooter').classList.add('active');
+                document.querySelector('.online-video.shooter').play();
+            } else {
+                hideAllMedia();
+                showFirstDownloadImage();
+                startAutoSlideshow();
+            }
+        }
+
+        function startAutoSlideshow() {
+            // Only if we're in download games tab
+            if (!document.getElementById('download-games').classList.contains('active')) return;
+            
+            clearInterval(autoSlideshowInterval);
+            
+            // Get all download images
+            const allImages = Array.from(document.querySelectorAll('.download-img'));
+            
+            if (allImages.length > 0) {
+                let currentIndex = allImages.findIndex(img => img.classList.contains('active'));
+                if (currentIndex === -1) currentIndex = 0;
+                
+                autoSlideshowInterval = setInterval(() => {
+                    // Hide current image
+                    allImages[currentIndex].classList.remove('active');
+                    
+                    // Move to next image
+                    currentIndex = (currentIndex + 1) % allImages.length;
+                    
+                    // Show next image
+                    allImages[currentIndex].classList.add('active');
+                }, 2000);
+            }
+        }
+
+        function hideAllMedia() {
+            // Hide all images and videos
+            document.querySelectorAll('.download-img, .online-video').forEach(media => {
+                media.classList.remove('active');
+                if (media.tagName === 'VIDEO') {
+                    media.pause();
+                }
+            });
+        }
+
+        function showFirstDownloadImage() {
+            hideAllMedia();
+            document.querySelector('.download-img.wacamole').classList.add('active');
+        }
+
+        function showGameImages(gameClass) {
+            // Only if we're in download games tab
+            if (!document.getElementById('download-games').classList.contains('active')) return;
+            
+            clearInterval(autoSlideshowInterval);
+            hideAllMedia();
+            clearInterval(gameSlideshowInterval);
+            
+            // Get all images for this game
+            currentGameImages = Array.from(document.querySelectorAll(`.download-img.${gameClass}`));
+            currentGameIndex = 0;
+            
+            // Show first image
+            if (currentGameImages.length > 0) {
+                currentGameImages[currentGameIndex].classList.add('active');
+                
+                // Start slideshow
+                gameSlideshowInterval = setInterval(() => {
+                    currentGameImages[currentGameIndex].classList.remove('active');
+                    currentGameIndex = (currentGameIndex + 1) % currentGameImages.length;
+                    currentGameImages[currentGameIndex].classList.add('active');
+                }, 2000);
+            }
+        }
+
+        function showGameVideo(videoClass) {
+            // Only if we're in play online tab
+            if (!document.getElementById('play-online').classList.contains('active')) return;
+            
+            hideAllMedia();
+            clearInterval(autoSlideshowInterval);
+            clearInterval(gameSlideshowInterval);
+            
+            // Show and play the selected video
+            let video = document.querySelector(`.online-video.${videoClass}`);
+            video.currentTime = 0;
+            video.play();
+            video.classList.add('active');
+        }
+
+        function hideGameVideo(videoClass) {
+            let video = document.querySelector(`.online-video.${videoClass}`);
+            video.pause();
+            video.classList.remove('active');
+            
+            // Show first video again
+            document.querySelector('.online-video.shooter').classList.add('active');
+            document.querySelector('.online-video.shooter').play();
+        }
+
+        function checkJava() {
+            alert("To check Java, open Command Prompt/Terminal and type: java -version");
+        }
+    </script>
+</body>
+</html>
