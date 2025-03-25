@@ -1,8 +1,4 @@
-Sure! Since your project is a gaming platform called **EXE-lent Games**, where users can **download and play PC games** or **play online games**, here's a well-structured **GitHub README.md** file for you:  
-
----
-
-# 🎮 EXE-lent Games  
+## 🎮 EXE-lent Games  
 
 **PC Gaming, Zero Compromises**  
 
